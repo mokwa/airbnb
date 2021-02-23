@@ -9,8 +9,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @booking = Booking.find(params[:booking_id])
     @review.booking = @booking
-    @flat = Flat.find(params[:flat_id])
-    @review.user = current_user
+    # @flat = Flat.find(params[:flat_id])
+    # @review.user = current_user
 
     if @review.save
       redirect_to flats_path(@flat)
