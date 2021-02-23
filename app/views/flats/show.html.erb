@@ -3,6 +3,12 @@
   <p><%= @flat.address %></p>
   <p><%= @flat.description %></p>
   <p><%= @flat.price %></p>
+  <ul class="list-group">
+  <% @flat.booking.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.rating %></li>
+    <li class="list-group-item"><%= review.description %></li>
+  <% end %>
+  </ul>
 
   <%= link_to 'Back', flats_path %>
   <%= link_to "edit", edit_flat_path(@flat) %>
