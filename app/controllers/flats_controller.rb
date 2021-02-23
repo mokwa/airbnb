@@ -6,6 +6,7 @@ class FlatsController < ApplicationController
 
   def show
 
+    find_flat
   end
 
   def new
@@ -31,7 +32,7 @@ class FlatsController < ApplicationController
   private
 
   def find_flat
-    @flat = flat_params.find(params[:id])
+    @flat = Flat.find(params[:id])
   end
 
   def flat_params
