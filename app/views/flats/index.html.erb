@@ -1,0 +1,22 @@
+<div class="container text-center">
+  <h1>All the flats you want to see</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @flats.each do |flat| %>
+     <div class="col-12 col-md-6 col-lg-3">
+       <div class="card-product">
+         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+         <div class="card-product-infos">
+           <h6><%= flat.name %></h6>
+           <p><%= flat.address %></p>
+           <p><%= flat.description %></p>
+           <p><%= flat.price %></p>
+        </div>
+         </div>
+     </div>
+     <% end %>
+  </div>
+</div>
+
