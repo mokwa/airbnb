@@ -6,6 +6,7 @@
 
   <%= link_to 'Back', flats_path %>
   <%= link_to "edit", edit_flat_path(@flat) %>
+  <%= link_to "Add Booking", new_flat_booking_path(@flat) %>
   <%= link_to "Delete", flat_path(@flat) , method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
 
