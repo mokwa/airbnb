@@ -4,7 +4,8 @@
   <p><%= @flat.description %></p>
   <p><%= @flat.price %></p>
   <ul class="list-group">
-  <% @flat.booking.reviews.each do |review| %>
+  	<!-- to review tomorrow -->
+  <% @flat.bookings.reviews.each do |review| %>
     <li class="list-group-item"><%= review.rating %></li>
     <li class="list-group-item"><%= review.description %></li>
   <% end %>
