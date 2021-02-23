@@ -1,4 +1,5 @@
 class FlatsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index] 
 
   skip_before_action :authenticate_user!, only: :index
 
@@ -12,10 +13,19 @@ class FlatsController < ApplicationController
   end
 
   def new
+     @flat = Flat.new
 
   end
 
   def create
+    @flat = Flat.new(flat_params)
+    @flat.user = current_user
+    if @flat.save
+      redirect_to root_path  
+    else
+      render :new
+    end
+
 
   end
 
@@ -38,6 +48,6 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    params.require(:flat).permit(:name, :address, :description, :price, :user_id)
+    params.require(:flat).permit(:name, :address, :description, :price)
   end
 end
