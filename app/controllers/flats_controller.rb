@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index] 
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
     @flats = Flat.all
@@ -17,25 +17,25 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.user = current_user
     if @flat.save
-      redirect_to flats_path  
+      redirect_to flats_path
     else
       render :new
     end
   end
 
   def edit
-    @flat = find_flat
+    find_flat
   end
 
   def update
-    @flat = find_flat
+    find_flat
     @flat.update(flat_params)
 
     redirect_to flats_path
   end
 
   def destroy
-    @flat = find_flat
+    find_flat
     @flat.destroy
     redirect_to flats_path
   end
