@@ -1,7 +1,6 @@
 <div class="container text-center">
   <h1>All the flats you want to see</h1>
 </div>
-
 <div class="container">
   <div class="row">
     <% @flats.each do |flat| %>
@@ -14,9 +13,11 @@
            <p><%= flat.description %></p>
            <p><%= flat.price %></p>
         </div>
+        <%= link_to "Details", flat %>
          </div>
      </div>
      <% end %>
   </div>
 </div>
+<%= link_to 'New Flat', new_flat_path %>
 
