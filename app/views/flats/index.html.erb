@@ -1,6 +1,12 @@
 <div class="container text-center">
   <h1 class="mt-4">All the flats you want to see</h1>
 </div>
+<div id="map"
+   style="width: 100%; height: 600px;"
+   data-markers="<%= @markers.to_json %>"
+   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
 <div class="container">
   <div class="row d-flex ">
     <% @flats.each do |flat| %>
