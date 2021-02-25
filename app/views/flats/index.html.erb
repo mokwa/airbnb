@@ -12,7 +12,11 @@
     <% @flats.each do |flat| %>
      <div class="col-12 col-md-6 col-lg-4 mt-4">
        <div class="card-product">
-         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+       <% if flat.photos.attached? %>
+         <img src="<%= cl_image_path flat.photos.first.key %>" />
+         <% else %>
+         <img src="https://vestnorden.com/wp-content/uploads/2018/03/house-placeholder.png" />
+         <% end %>
          <div class="card-product-infos p-4">
            <h6><%= flat.name %></h6>
            <p><%= flat.address %></p>
