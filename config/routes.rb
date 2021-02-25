@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :bookings do
     resources :reviews
   end
+  get 'my_profile', to: 'users_info#index', as: :my_profile
+
 end

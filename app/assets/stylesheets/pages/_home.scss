@@ -108,6 +108,12 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+
 .main-container {
   display: flex;
 }
@@ -120,4 +126,5 @@
   margin-right: 10px;
   margin-left: 10px;
   margin-bottom: 10px;
+
 }
