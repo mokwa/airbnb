@@ -1,11 +1,11 @@
 // Specific CSS for your home-page
 .card-product {
   overflow: hidden;
-  height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  width: 300px;
 }
 
 .card-product img {
@@ -68,13 +68,13 @@
   color: white;
 }
 .footer {
-  background: #FF385C;
+  background: #6A6B6C;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+  color: white;
 }
 .footer-links {
   display: flex;
@@ -108,8 +108,23 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+
 .page-container {
   display: grid;
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
+
+.main-container {
+  display: flex;
+}
+
+.cards-maps {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  flex-grow: 1;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+
 }
