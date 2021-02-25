@@ -1,5 +1,5 @@
 <div class="container text-center">
-  <h1 class="m-4">All the flats you want to see</h1>
+  <h1 class="mt-4">All the flats you want to see</h1>
 </div>
 
 <div class="main-container">
@@ -27,4 +27,4 @@
   </div>
 
 </div>
-
+<div class="mt-4"> <%= link_to 'New Flat', new_flat_path, class: 'btn btn-primary' %></div>
