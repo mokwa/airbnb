@@ -1,30 +1,45 @@
 <div class="container mt-4">
   <h2><%= @flat.name %></h2>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @flat.photo.key, height: 300, crop: :fill %>')">
-  Cool Flat
-</div>
+  <% if @flat.photo.attached? %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @flat.photo.key, height: 300, crop: :fill %>')">
+      Cool Flat
+    </div>
+  <% end %>
+
   <p><%= @flat.address %></p>
   <p><%= @flat.description %></p>
   <p>£<%= @flat.price %></p>
+
   <ul class="list-group">
   	<!-- to review tomorrow -->
     <% @flat.bookings.each do |booking| %>
      <!--  <%= link_to "Add Review", new_booking_review_path(booking) %> -->
       <% booking.reviews.each do |review| %>
-       <div>
-        <% number = review.rating.to_i
-        number.times do |star|%>
-          ⭐
-        <% end %>
-        - <%= review.description %></div>
+        <div>
+          <% number = review.rating.to_i
+          number.times do |star|%>
+            ⭐
+          <% end %>
+          - <%= review.description %>
+            
+        </div>
        <br>
+      <% end %>
     <% end %>
-  <% end %>
   </ul>
 
   <%= link_to "Add Booking", new_flat_booking_path(@flat), class: 'btn btn-success' %>
   <%= link_to 'Back', flats_path, class: 'btn btn-primary' %>
   <%= link_to "Edit", edit_flat_path(@flat), class: 'btn btn-primary' %>
   <%= link_to "Delete", flat_path(@flat) , class: 'btn btn-secondary', method: :delete, data: { confirm: 'Are you sure?' }%>
-</div>
+
+  <div class="card-booking-info">
+    <h2>Property name</h2>
+    <p>Property description with <strong>relevant info</strong> only.</p>
+  </div>
+
+    <%= render "bookings/new" %>
+
+</div> 
+
 
