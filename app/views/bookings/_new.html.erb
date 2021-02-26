@@ -1,8 +1,9 @@
-
-	<div class="row">
+<% if @flat.user_id != current_user.id %>
+	<div class="row card p-4">
 		<%= simple_form_for [@flat, @booking] do |f| %>
 			<%= f.input :start_date, as: :date, html5: true %>
 			<%= f.input :end_date, as: :date, html5: true  %>
-			<%= f.button :submit, class: 'btn btn-primary' %>
-		<% end %>	
+			<%= f.button :submit, class: 'btn btn-primary btn-block' %>
+		<% end %>
 	</div>
+<% end %>

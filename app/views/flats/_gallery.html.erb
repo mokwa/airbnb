@@ -1,0 +1,27 @@
+
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+  <% if @flat.photos.attached? %>
+    <div class="card-category" id="photo_banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @flat.photos.first.key %>)">
+
+    </div>
+  <% end %>
+
+    <!-- Page Content -->
+   <div class="container page-top">
+        <div class="row">
+        <% @flat.photos.each do |photo| %>
+          <% if @flat.photos.attached? %>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+              <a href="<%= cl_image_path photo.key %>" class="fancybox" rel="ligthbox">
+                <img  src="<%= cl_image_path photo.key %>" class="zoom img-fluid "  alt="">
+              </a>
+            </div>
+          <% end %>
+        <% end %>
+       </div>
+    </div>
+

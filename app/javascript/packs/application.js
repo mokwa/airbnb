@@ -27,9 +27,22 @@ import "bootstrap";
 
 // app/javascript/packs/application.js
 import { initMapbox } from '../plugins/init_mapbox';
+import { fancybox } from '../plugins/init_gallery';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  $(".fancybox").fancybox({
+        openEffect: "none",
+        closeEffect: "none"
+    });
+
+    $(".zoom").hover(function(){
+
+    $(this).addClass('transition');
+  }, function(){
+
+    $(this).removeClass('transition');
+  });
 })
 
 // Internal imports, e.g:

@@ -1,4 +1,5 @@
 // Specific CSS for your home-page
+
 .card-product {
   overflow: hidden;
   background: white;
@@ -6,6 +7,9 @@
   display: flex;
   align-items: center;
   width: 300px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
 }
 
 .card-product img {
@@ -127,5 +131,11 @@
   margin-right: 10px;
   margin-left: 10px;
   margin-bottom: 10px;
+  justify-content: space-around;
+}
 
+#map {
+  width: 100%;
+  height: 100vh;
+  border:none;
 }
