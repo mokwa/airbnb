@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     if @booking.save
-      redirect_to my_profile_path
+      redirect_to my_profile_path, notice: "Booking added to your profile!"
     else
       render :new
     end
