@@ -3,9 +3,10 @@ class FlatsController < ApplicationController
 
   def index
     if params[:query].present?
-      @flats = Flat.joins(:city).where("cities.name ILIKE ?", "%#{params[:query]}%")
+      @flats = Flat.where("address ILIKE ?", "%#{params[:query]}%")
+      @flats = @flats.where.not(user: current_user)
     else
-      @flats = Flat.all
+      @flats = Flat.where.not(user: current_user)
     end
 
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
@@ -31,10 +32,11 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.user = current_user
     if @flat.save
-      redirect_to flat_path(@flat)
+      redirect_to flat_path(@flat), notice: "Flat added to your profile!"
     else
       render :new
     end
+
   end
 
   def edit
@@ -61,6 +63,7 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    params.require(:flat).permit(:name, :address, :description, :price, photos: [])
+    params.require(:flat).permit(:name, :address, :description, :price, :city, photos: [])
   end
 end
+
