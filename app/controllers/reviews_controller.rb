@@ -13,11 +13,11 @@ class ReviewsController < ApplicationController
     # @review.user = current_user
 
     if @review.save
-      redirect_to flats_path(@flat)
+      redirect_to flat_path(@booking.flat)
     else
       render :new
     end
-        
+
     end
 
     private

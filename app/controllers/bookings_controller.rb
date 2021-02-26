@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     if @booking.save
-      redirect_to flats_path(@flat)
+      redirect_to my_profile_path
     else
       render :new
     end

@@ -41,7 +41,7 @@ class FlatsController < ApplicationController
     find_flat
     @flat.update(flat_params)
 
-    redirect_to flats_path
+    redirect_to flat_path(@flat)
   end
 
   def destroy
