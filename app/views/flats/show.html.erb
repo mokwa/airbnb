@@ -1,13 +1,10 @@
 <div class="container mt-4">
-  <h2><%= @flat.name %></h2>
-</div>
-
-<div class="container">
    <%= render "gallery" %>
 </div>
 
 <div class="container my-4 parent" >
   <div class="child-1">
+    <h2><%= @flat.name %></h2>
     <p><%= @flat.address %></p>
     <p><%= @flat.description %></p>
     <p>£<%= @flat.price %></p>
