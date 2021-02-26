@@ -2,7 +2,11 @@ class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @flats = Flat.all
+    if params[:query].present?
+      @flats = Flat.joins(:city).where("cities.name ILIKE ?", "%#{params[:query]}%")
+    else
+      @flats = Flat.all
+    end
 
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     @markers = @flats.geocoded.map do |flat|
